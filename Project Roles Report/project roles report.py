@@ -88,14 +88,14 @@ def generate_report(projects, auth_header, api_url, excluded_roles=None):
 
 
 def main():
-    # Replace with your actual Jira instance URL, username, and API token
+    #replace with your actual Jira instance URL, username, and API token
     jira_api_url = "https://INSTANCE.atlassian.net/rest/api/2"
-    jira_username = "EMAIL
+    jira_username = "EMAIL"
     jira_api_token = "PAT"
     credentials = f"{jira_username}:{jira_api_token}"
     auth_header = {"Authorization": "Basic " + base64.b64encode(credentials.encode('utf-8')).decode('utf-8')}
 
-    # I exclude this becayse otherwise it throws error
+    #exclude this because otherwise it throws error
     excluded_roles = {'atlassian-addons-project-access'}
 
     projects = get_jira_projects(jira_api_url, auth_header)
